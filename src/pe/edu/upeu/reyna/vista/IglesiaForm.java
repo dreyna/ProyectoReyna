@@ -8,6 +8,7 @@ package pe.edu.upeu.reyna.vista;
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import pe.edu.upeu.reyna.DAO.DistritoDAO;
 import pe.edu.upeu.reyna.DAO.IglesiaDAO;
 import pe.edu.upeu.reyna.DAO.TipoIglesiaDAO;
@@ -147,7 +148,9 @@ final void cargartipoiglesia(){
         int cuenta = Integer.parseInt(txtcuenta.getText());
         int x = dAo3.registrarIglesia(idd, idti, iglesia, cuenta);
         if(x>0){
+            JOptionPane.showMessageDialog(null, "Exito");
         }else{
+            JOptionPane.showMessageDialog(null, "Falla");
         }
     }//GEN-LAST:event_tbningresarActionPerformed
 

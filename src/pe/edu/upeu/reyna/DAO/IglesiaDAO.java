@@ -24,7 +24,8 @@ public class IglesiaDAO {
     private String sql;
     private int op;
     public int registrarIglesia(int idd, int idti, String nom, int cuenta){
-    sql = "INSERT INTO iglesia VALUES('"+maxidIglesia()+"','"+idd+"',"
+        int idp = maxidIglesia() + 1;
+    sql = "INSERT INTO iglesia VALUES('"+idp+"','"+idd+"',"
             + "'"+idti+"','"+nom+"','"+cuenta+"')";
         try {
             cx = Conexion.getConex();
