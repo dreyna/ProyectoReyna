@@ -10,15 +10,15 @@ package pe.edu.upeu.reyna.modelo;
  *
  * @author admin-harold.rojas
  */
-public class TipoIgleisa {
+public class TipoIglesia {
     private int idti;
     private String nomtipo;
 
-    public TipoIgleisa(String nomtipo) {
+    public TipoIglesia(String nomtipo) {
         this.nomtipo = nomtipo;
     }
 
-    public TipoIgleisa() {
+    public TipoIglesia() {
     }
 
     public int getIdti() {
