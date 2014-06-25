@@ -11,5 +11,9 @@ package pe.edu.upeu.reyna.modelo;
  * @author admin-harold.rojas
  */
 public class Distrito {
+    private int idd;
+    private int idr;
+    private String disc;
+    private String estado;
     
 }
