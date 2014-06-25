@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import pe.edu.upeu.reyna.config.Conexion;
+import pe.edu.upeu.reyna.modelo.TipoIglesia;
 
 /**
  *
@@ -23,7 +24,7 @@ public class IglesiaDAO {
     private String sql;
     private int op;
     public int registrarIglesia(int idd, int idti, String nom, int cuenta){
-    sql = "INSERT INTO iglesia VALUES(null,'"+idd+"',"
+    sql = "INSERT INTO iglesia VALUES('"+maxidIglesia()+"','"+idd+"',"
             + "'"+idti+"','"+nom+"','"+cuenta+"')";
         try {
             cx = Conexion.getConex();
@@ -32,6 +33,20 @@ public class IglesiaDAO {
         } catch (SQLException e) {
         }
     return op;
+    }
+    public int maxidIglesia(){
+    int v =0;
+    sql = "SELECT MAX(idiglesia) AS id FROM iglesia";
+        try {
+            cx = Conexion.getConex();
+            st = cx.createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+                    v = rs.getInt("id");
+                }
+        } catch (SQLException e) {
+        }
+    return v;
     }
     
 }
