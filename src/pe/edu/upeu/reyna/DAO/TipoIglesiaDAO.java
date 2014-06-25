@@ -42,4 +42,18 @@ public class TipoIglesiaDAO {
         }    
     return lista;
     }
+    public int idTipoIglesia(String nom){
+    int id=0;
+    sql ="SELECT *FROM tipo_iglesia WHERE tipo_iglesia='"+nom+"'";
+    try {
+            cx = Conexion.getConex();
+            st = cx.createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+                id = rs.getInt("idtipo_iglesia");
+            }
+        } catch (SQLException e) {
+        }
+    return id;    
+    }
 }

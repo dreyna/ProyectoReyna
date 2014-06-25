@@ -80,6 +80,11 @@ final void cargartipoiglesia(){
         jLabel4.setText("Cuenta:");
 
         tbningresar.setText("Registrar");
+        tbningresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbningresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,6 +136,11 @@ final void cargartipoiglesia(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tbningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbningresarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tbningresarActionPerformed
 
     /**
      * @param args the command line arguments
