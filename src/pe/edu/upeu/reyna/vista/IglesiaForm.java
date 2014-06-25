@@ -146,6 +146,9 @@ final void cargartipoiglesia(){
         String iglesia = txtiglesia.getText();
         int cuenta = Integer.parseInt(txtcuenta.getText());
         int x = dAo3.registrarIglesia(idd, idti, iglesia, cuenta);
+        if(x>0){
+        }else{
+        }
     }//GEN-LAST:event_tbningresarActionPerformed
 
     /**
