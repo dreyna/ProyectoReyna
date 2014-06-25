@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import pe.edu.upeu.reyna.config.Conexion;
-import pe.edu.upeu.reyna.modelo.Distrito;
 import pe.edu.upeu.reyna.modelo.TipoIglesia;
 
 /**

@@ -9,6 +9,7 @@ package pe.edu.upeu.reyna.vista;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import pe.edu.upeu.reyna.DAO.DistritoDAO;
+import pe.edu.upeu.reyna.DAO.IglesiaDAO;
 import pe.edu.upeu.reyna.DAO.TipoIglesiaDAO;
 import pe.edu.upeu.reyna.modelo.Distrito;
 import pe.edu.upeu.reyna.modelo.TipoIglesia;
@@ -22,6 +23,7 @@ public class IglesiaForm extends javax.swing.JFrame {
     ArrayList<TipoIglesia> lista2 = new ArrayList();
     DistritoDAO dAO1 = new DistritoDAO();
     TipoIglesiaDAO dAO2 = new TipoIglesiaDAO();
+    IglesiaDAO dAo3 = new IglesiaDAO();
     DefaultComboBoxModel<Object> modelodistrito = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<Object> modelotipo = new DefaultComboBoxModel<>();
     /**
@@ -139,7 +141,11 @@ final void cargartipoiglesia(){
 
     private void tbningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbningresarActionPerformed
         // TODO add your handling code here:
-        
+        int idd = dAO1.idDistrito(cbodistrito.getSelectedItem().toString());
+        int idti = dAO2.idTipoIglesia(cbotipoiglesia.getSelectedItem().toString());
+        String iglesia = txtiglesia.getText();
+        int cuenta = Integer.parseInt(txtcuenta.getText());
+        int x = dAo3.registrarIglesia(idd, idti, iglesia, cuenta);
     }//GEN-LAST:event_tbningresarActionPerformed
 
     /**
