@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import pe.edu.upeu.reyna.config.Conexion;
+import pe.edu.upeu.reyna.modelo.Iglesia;
 
 
 /**
@@ -49,5 +51,27 @@ public class IglesiaDAO {
         }
     return v;
     }
+    ArrayList<Iglesia> lista = null;
+    public ArrayList<Iglesia> listarIglesia(){
+    lista = new ArrayList();
+    sql = "SELECT *FROM iglesia";
+        try {
+            cx = Conexion.getConex();
+            st = cx.createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+                Iglesia d = new Iglesia();
+                d.setIdi(rs.getInt("idiglesia"));
+                d.setIdd(rs.getInt("iddistrito"));
+                d.setIdti(rs.getInt("idtipo_iglesia"));
+                d.setNomiglesia(rs.getString("iglesia"));
+                 d.setCuenta(rs.getInt("cuenta"));
+                lista.add(d);
+            }
+        } catch (SQLException e) {
+        }
     
+    
+    return lista;
+    }
 }
