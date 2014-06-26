@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import pe.edu.upeu.reyna.config.Conexion;
 import pe.edu.upeu.reyna.modelo.Iglesia;
 
@@ -73,5 +74,26 @@ public class IglesiaDAO {
     
     
     return lista;
+    }
+      public int  verificarIglesia(String  user )
+    {
+        sql="SELECT *FROM iglesia WHERE iglesia='"+user+"'";
+        try { 
+              cx=Conexion.getConex();
+              st=cx.createStatement();
+              rs=st.executeQuery(sql);
+              if(rs.next())
+            {
+                op=1;
+                 //JOptionPane.showMessageDialog(null,"YA EXISTE ESE USUARIO");
+            }else{
+                op=2;
+               // JOptionPane.showMessageDialog(null,"USUARIO GUARDADO EXITOSAMENTE");
+                
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"ERROR"+ex);
+        }
+        return op;   
     }
 }

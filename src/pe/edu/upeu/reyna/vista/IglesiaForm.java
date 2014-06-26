@@ -6,6 +6,7 @@
 
 package pe.edu.upeu.reyna.vista;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -31,6 +32,7 @@ public class IglesiaForm extends javax.swing.JFrame {
     DefaultComboBoxModel<Object> modelodistrito = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<Object> modelotipo = new DefaultComboBoxModel<>();
      DefaultTableModel model = new DefaultTableModel();
+     int op;
      
     /**
      * Creates new form IglesiaForm
@@ -122,6 +124,9 @@ final void cargartipoiglesia(){
         });
 
         txtiglesia1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtiglesia1KeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtiglesia1KeyTyped(evt);
             }
@@ -264,6 +269,28 @@ final void cargartipoiglesia(){
             txtTipoIglesia.setText(""+id);
         }
     }//GEN-LAST:event_cbotipoiglesiaActionPerformed
+
+    private void txtiglesia1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtiglesia1KeyPressed
+        // TODO add your handling code here:
+        int key= evt.getKeyCode();
+        if(key==KeyEvent.VK_ENTER)
+        {
+            if(!txtiglesia1.getText().equals("")){
+                op = dAo3.verificarIglesia(txtiglesia1.getText());
+                if(op==1){
+                    JOptionPane.showMessageDialog(null,"Iglesia EXISTE" );
+                    txtiglesia1.setText(null);
+                    txtiglesia1.requestFocus();
+                }else{
+                    JOptionPane.showMessageDialog(null,"Iglesia NO EXISTE" );
+                    txtcuenta1.requestFocus();
+                }
+            }else{
+                   JOptionPane.showMessageDialog(null,"Escriba algo " );
+                    txtiglesia1.requestFocus(); 
+            }
+        }
+    }//GEN-LAST:event_txtiglesia1KeyPressed
 
     /**
      * @param args the command line arguments
